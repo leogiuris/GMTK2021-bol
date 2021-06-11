@@ -14,6 +14,7 @@ public class CpuControler : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
     }
 
 
@@ -24,10 +25,13 @@ public class CpuControler : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (transform.position.x < -4)
+        {
+            transform.position += new Vector3(hSpeed, 0, 0);
 
-        transform.position += new Vector3(hSpeed, 0, 0);
-        rot -= ySpeed;
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+            rot -= ySpeed;
+            transform.rotation = Quaternion.Euler(0, 0, rot);
+        }
     }
 
     private void Movement()
