@@ -309,7 +309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3029195124833240247}
   - component: {fileID: 3029195124833240246}
-  - component: {fileID: 3029195124833240248}
   m_Layer: 0
   m_Name: CpuHand
   m_TagString: Untagged
@@ -376,30 +375,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3029195124833240245}
   m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
-  m_LocalPosition: {x: -5.87, y: 2.45, z: 0}
+  m_LocalPosition: {x: -10.55, y: 2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3029195126200175659}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
---- !u!114 &3029195124833240248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3029195124833240245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa0fa3d6c2d4e6478ae80e087ffe35d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hSpeed: 1
-  speedMod: 1
-  ySpeed: 1
-  rotMod: 0
-  yDir: 0
 --- !u!212 &3029195126200175636
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -495,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6304995044056403768, guid: 230cc458179e9c248ba4e4452f17afa9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.89
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 6304995044056403768, guid: 230cc458179e9c248ba4e4452f17afa9, type: 3}
       propertyPath: m_LocalPosition.y
