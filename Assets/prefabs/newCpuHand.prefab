@@ -266,10 +266,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c0c4d65c996e34286c1df0d075ac22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 0}
+  gameCon: {fileID: 0}
+  bodies: []
+  faces: []
+  body: {fileID: 0}
+  face: {fileID: 0}
+  npcSpeed: 0
+  npcChange: 0
+  countDown: -1
+  spawn: {fileID: 0}
+  deSpawn: {fileID: 0}
   hSpeed: 0
-  speedMod: 0.05
   ySpeed: 0
-  rotMod: 0.1
 --- !u!114 &8897461205646806789
 MonoBehaviour:
   m_ObjectHideFlags: 0
