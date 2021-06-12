@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public Hand hand;
+
     public float hSpeed = 1;
     public float hDir;
     public float ySpeed = 0.5f;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rot = 20;
+
     }
 
 

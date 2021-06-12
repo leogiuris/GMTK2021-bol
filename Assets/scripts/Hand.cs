@@ -26,7 +26,6 @@ public class Hand : MonoBehaviour
         hm = (HandMode)hmIndex;
 
         hands[hmIndex].SetActive(true);
-        //Debug.Log("change hand mode" + hm.ToString());
     }
 
     public bool Hold()
@@ -44,11 +43,12 @@ public class Hand : MonoBehaviour
             if(other.tag == hands[hmIndex].tag)
             {
                 Debug.Log("deubom");
-                GameController.Instance.dialog = true;
+                GameController.Instance.Win();
             }
             else
             {
                 Debug.Log("deuruim");
+                GameController.Instance.Lose();
             }
         }
         
@@ -71,6 +71,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
 
         if (GameController.canHold)

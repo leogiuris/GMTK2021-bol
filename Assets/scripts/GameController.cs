@@ -14,12 +14,13 @@ public class GameController : MonoBehaviour
     private Vector3 gamePoint;
 
     //estado do jogo
-    public bool dialog = true;
+    public bool dialogue = true;
     public static bool isPaused;
 
     //data
     public Hand playerHand, cpuHand;
     public GameObject player, cpu;
+    private Transform t_player, t_cpu;
     bool handsHolding;
     int level;
     public int score = 0;
@@ -45,12 +46,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void ShowDialogue()
+    {
+        dialogue = true;
+        Destroy(player);
+        Destroy(cpu);
+    }
 
     void StartHandShake()
     {
+        player.transform.position = t_player.position;
+        cpu.transform.position = t_cpu.position;
         player.SetActive(true);
         cpu.SetActive(true);
-
+        Cursor.visible = false;
         timer.StartTimer();
     }
 
@@ -65,6 +74,8 @@ public class GameController : MonoBehaviour
         level = 0;
         canHold = false;
         timer = new Timer();
+        t_player = player.transform;
+        t_cpu = cpu.transform;
         player.SetActive(false);
         cpu.SetActive(false);
         
@@ -87,6 +98,7 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1f;
             isPaused = false;
             pauseMenu.SetActive(false);
+            Cursor.visible = false;
             //SoundManagerScript.PlaySound("OpenMenu");
         }
 
@@ -99,9 +111,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void Win()
+    {
+        dialogue = true;
+        dialoguePanel.SetActive(true);
+    }
+    public void Lose()
+    {
+        dialogue = true;
+        dialoguePanel.SetActive(true);
+    }
+
     private void Gamestate()
     {
-        if (dialog)
+        if (dialogue)
         {
             c.transform.position = dialogPoint;
         }
@@ -112,9 +135,9 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
         if (Input.GetKeyDown(KeyCode.D))
         {
-            dialog = false;
-            StartHandShake();
+            dialogue = false;
             dialoguePanel.SetActive(false);
+            StartHandShake();
         }
         
         
