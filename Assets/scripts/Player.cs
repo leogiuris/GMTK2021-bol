@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     {
         
         transform.position += new Vector3(hSpeed* hDir,0,0);
-        rot += ySpeed * -yDir;
+        rot += ySpeed * (-yDir);
         transform.rotation = Quaternion.Euler(0, 0, rot);
     }
 

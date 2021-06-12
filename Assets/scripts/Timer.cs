@@ -5,11 +5,19 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-
-    float segundos{get{return Time.timeSinceLevelLoad; }}
-    string relogio;
+    private float init;
 
 
+
+    public void StartTimer()
+    {
+        init = Time.timeSinceLevelLoad;
+    }
+
+    public float getTime()
+    {
+        return Time.timeSinceLevelLoad - init;
+    }
 
     private void Update()
     {

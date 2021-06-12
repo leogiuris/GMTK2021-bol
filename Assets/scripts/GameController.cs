@@ -9,16 +9,17 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get { return _instance; } }
 
     //controle camera
-    public Camera c;
+    private GameObject c;
     private Vector3 dialogPoint;
     private Vector3 gamePoint;
+
     //estado do jogo
     private bool dialog = true;
     public static bool isPaused;
 
     //data
     public Hand playerHand, cpuHand;
-    public Player p;
+    public GameObject player, cpu;
     bool handsHolding;
     int level;
     public int score = 0;
@@ -26,6 +27,10 @@ public class GameController : MonoBehaviour
 
     //UI
     public GameObject pauseMenu;
+    public GameObject dialoguePanel;
+
+    //Utils
+    Timer timer;
 
 
     private void Awake()
@@ -40,22 +45,38 @@ public class GameController : MonoBehaviour
         }
     }
 
+
+    void StartHandShake()
+    {
+        player.SetActive(true);
+        cpu.SetActive(true);
+
+        timer.StartTimer();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         //config camera
-        //camera = GameObject.Find("Main Camera");
-        gamePoint = new Vector3(0, 0, 0);
+        c = GameObject.Find("Main Camera");
+        gamePoint = c.transform.position;
         dialogPoint = new Vector3(0, 100, 0);
         pauseMenu.SetActive(false);
         level = 0;
         canHold = false;
+        timer = new Timer();
+        player.SetActive(false);
+        cpu.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Gamestate();
+
+        //DEBUG
+        Tests();
     }
 
     public void Pause()
@@ -82,12 +103,28 @@ public class GameController : MonoBehaviour
     {
         if (dialog)
         {
-            //camera.transform.position = dialogPoint.position;
+            c.transform.position = dialogPoint;
         }
         else
         {
-            //camera.transform.position = gamePoint.position;
+            c.transform.position = gamePoint;
         }
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            dialog = false;
+            StartHandShake();
+            dialoguePanel.SetActive(false);
+        }
+        
+        
     }
+
+
+    // ---------------- DEBUG -----------------
+    void Tests()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) Debug.Log(timer.getTime());
+    }
+
 }
