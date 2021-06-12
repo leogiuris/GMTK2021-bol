@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 758920307545838882}
   - component: {fileID: 3753302377949419371}
   m_Layer: 0
-  m_Name: shakeHand
+  m_Name: openHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &758920307545838877
 Transform:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &758920308428571687
 Transform:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &758920308464829494
 Transform:
   m_ObjectHideFlags: 0
@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 758920308477386118}
   - component: {fileID: 758920308477386112}
   - component: {fileID: 7374023207451866324}
+  - component: {fileID: 277945413373743087}
   m_Layer: 0
   m_Name: player new
   m_TagString: Untagged
@@ -456,3 +457,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.925642, y: 1.0073166}
   m_EdgeRadius: 0
+--- !u!114 &277945413373743087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758920308477386115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e735fba6b93391448aceedf2349c05d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hands:
+  - {fileID: 758920307545838876}
+  - {fileID: 758920308428571686}
+  - {fileID: 758920308464829489}
+  strengh: 0
+  hm: 0

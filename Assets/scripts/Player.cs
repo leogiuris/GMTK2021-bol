@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-
+    public Hand hand;
     public float hSpeed = 1;
     public float hDir;
     public float ySpeed = 1;
@@ -37,5 +37,6 @@ public class Player : MonoBehaviour
     {
         hDir = (Input.GetAxis("Mouse X"));
         yDir = (Input.GetAxis("Mouse Y"));
+        if (Input.GetKeyDown(KeyCode.Space)) hand.ChangeHandMode();
     }
 }

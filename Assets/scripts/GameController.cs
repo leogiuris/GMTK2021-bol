@@ -21,7 +21,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //config camera
         camera = GameObject.Find("Main Camera");
+        gamePoint.position = new Vector3(0, 0, 0);
+        gamePoint.position = new Vector3(0, 100, 0);
+
         canHold = false;
     }
 

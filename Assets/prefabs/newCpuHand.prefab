@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hSpeed: 0
-  speedMod: 0
+  speedMod: 0.05
   ySpeed: 0
-  rotMod: 0
+  rotMod: 0.1
 --- !u!1 &7340431658682224663
 GameObject:
   m_ObjectHideFlags: 0
