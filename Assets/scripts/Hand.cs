@@ -19,6 +19,21 @@ public class Hand : MonoBehaviour
     public HandMode hm;
     private int hmIndex;
 
+    private Vector3 init_pos;
+    private Quaternion init_rot;
+
+    private void Awake()
+    {
+        init_pos = this.transform.position;
+        init_rot = this.transform.rotation;
+    }
+
+    public void Reset()
+    {
+        this.transform.position = init_pos;
+        this.transform.rotation = init_rot;
+    }
+
     public void ChangeHandMode()
     {
         hands[hmIndex].SetActive(false);
@@ -26,7 +41,6 @@ public class Hand : MonoBehaviour
         hm = (HandMode)hmIndex;
 
         hands[hmIndex].SetActive(true);
-        //Debug.Log("change hand mode" + hm.ToString());
     }
 
     public bool Hold()
@@ -44,10 +58,12 @@ public class Hand : MonoBehaviour
             if(other.tag == hands[hmIndex].tag)
             {
                 Debug.Log("deubom");
+                GameController.Instance.Win();
             }
             else
             {
                 Debug.Log("deuruim");
+                GameController.Instance.Lose();
             }
         }
         
@@ -70,6 +86,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
 
         if (GameController.canHold)

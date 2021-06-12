@@ -8,17 +8,21 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public Hand hand;
+   
     public float hSpeed = 1;
     public float hDir;
     public float ySpeed = 0.5f;
     public float yDir;
     private float rot;
 
+    
+
     void Start()
     {
         rot = 20;
     }
 
+    
 
     void Update()
     {
@@ -29,14 +33,20 @@ public class Player : MonoBehaviour
     {
         
         transform.position += new Vector3(hSpeed* hDir,0,0);
-        rot += ySpeed * -yDir;
+        rot += ySpeed * (-yDir);
         transform.rotation = Quaternion.Euler(0, 0, rot);
     }
+
+    
 
     private void PlayerInput()
     {
         hDir = (Input.GetAxis("Mouse X"));
         yDir = (Input.GetAxis("Mouse Y"));
-        if (Input.GetKeyDown(KeyCode.Space)) hand.ChangeHandMode();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(!GameController.Instance.dialogue)
+                hand.ChangeHandMode();
+        }
     }
 }
