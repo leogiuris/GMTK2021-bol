@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     private Vector3 gamePoint;
 
     //estado do jogo
-    private bool dialog = true;
+    public bool dialog = true;
     public static bool isPaused;
 
     //data

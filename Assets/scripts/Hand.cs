@@ -44,6 +44,7 @@ public class Hand : MonoBehaviour
             if(other.tag == hands[hmIndex].tag)
             {
                 Debug.Log("deubom");
+                GameController.Instance.dialog = true;
             }
             else
             {
