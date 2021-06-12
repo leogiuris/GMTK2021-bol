@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6575293854367646541}
   m_Layer: 0
   m_Name: shakeHand
-  m_TagString: Untagged
+  m_TagString: shake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6089749868284761033}
   m_Layer: 0
   m_Name: lowClap
-  m_TagString: Untagged
+  m_TagString: slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -5.999073, y: 0.06123182}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 6619759443546997023}
   m_Layer: 0
   m_Name: fist
-  m_TagString: Untagged
+  m_TagString: fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +440,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -3.0506835, y: -0.0035789907}

@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fab2daeba110b44ac6ff4e30143593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 0}
   hSpeed: 1
   hDir: 0
   ySpeed: 8
@@ -196,6 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hands: []
-  t: {fileID: 0}
+  amPlayer: 1
   strengh: 0
   hm: 0

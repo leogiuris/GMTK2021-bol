@@ -14,7 +14,7 @@ public enum HandMode
 public class Hand : MonoBehaviour
 {
     public List<GameObject> hands;
-    
+    public bool amPlayer;
     public int strengh;
     public HandMode hm;
     private int hmIndex;
@@ -36,8 +36,21 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //checar se esse script e da mão do player para evitar redundancias
+        if (amPlayer)
+        {
+            GameController.canHold = true;
+            //checar se a combinação de mãos esta correta
+            if(other.tag == hands[hmIndex].tag)
+            {
+                Debug.Log("deubom");
+            }
+            else
+            {
+                Debug.Log("deuruim");
+            }
+        }
         
-        GameController.canHold = true;
         
     }
 
@@ -57,9 +70,12 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
         if (GameController.canHold)
-            Debug.Log("pode apertar");
+        {
+            //Debug.Log("pode apertar");
+        }
     }
+
 }
