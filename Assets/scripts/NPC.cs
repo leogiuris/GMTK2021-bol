@@ -40,8 +40,8 @@ public class NPC : MonoBehaviour
     {
         bodyRen.sprite = bodies[Random.Range(0, bodies.Count)];
         faceRen.sprite = faces[Random.Range(0, faces.Count)];
-        npcChange = bodies.IndexOf(bodyRen.sprite);
-        npcSpeed = faces.IndexOf(faceRen.sprite);
+        npcChange = 1+bodies.IndexOf(bodyRen.sprite);
+        npcSpeed = 1+faces.IndexOf(faceRen.sprite);
 
     }
 }
