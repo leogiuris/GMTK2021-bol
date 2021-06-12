@@ -8,7 +8,6 @@ public enum HandMode
     Palm = 0,
     FistBump = 1,
     Holding = 2
-
 }
 
 
@@ -37,8 +36,9 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         GameController.canHold = true;
-        Debug.Log("pau");
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -57,6 +57,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         
         if (GameController.canHold)
             Debug.Log("pode apertar");
