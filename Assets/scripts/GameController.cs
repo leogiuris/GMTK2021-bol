@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     private Transform gamePoint;
     //estado do jogo
     private bool dialog = true;
+    public static bool isPaused;
 
     //data
     public Hand playerHand, cpuHand;
@@ -36,7 +37,27 @@ public class GameController : MonoBehaviour
 
 
     }
-    
+
+    public void Pause()
+    {
+        Debug.Log("pause");
+        if (isPaused)
+        {
+            Time.timeScale = 1f;
+            isPaused = false;
+            //pauseMenu.SetActive(false);
+            //SoundManagerScript.PlaySound("OpenMenu");
+        }
+
+        else
+        {
+            Time.timeScale = 0f;
+            isPaused = true;
+            //pauseMenu.SetActive(true);
+            //SoundManagerScript.PlaySound("OpenMenu");
+        }
+    }
+
     private void Gamestate()
     {
         if (dialog)
@@ -47,5 +68,6 @@ public class GameController : MonoBehaviour
         {
             camera.transform.position = gamePoint.position;
         }
+        if (Input.GetKeyDown(KeyCode.Tab)) Pause();
     }
 }
