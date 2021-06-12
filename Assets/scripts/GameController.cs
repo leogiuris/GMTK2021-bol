@@ -6,10 +6,9 @@ public class GameController : MonoBehaviour
 {
 
     public Hand playerHand, cpuHand;
-
+    public Player p;
     bool handsHolding;
     public int score = 0;
-
     public static bool canHold;
 
     // Start is called before the first frame update
@@ -22,5 +21,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+
+
     }
 }

@@ -12,10 +12,7 @@ public enum HandMode
 
 public class Hand : MonoBehaviour
 {
-    
-
     public Transform t;
-    public Collider2D col;
     public int strengh;
     public HandMode hm;
     
