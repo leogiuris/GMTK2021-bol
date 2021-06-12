@@ -5,23 +5,29 @@ using UnityEngine;
 
 public enum HandMode
 {
-    Palm = 1,
-    FistBump = 2,
-    Holding = 3
+    Palm = 0,
+    FistBump = 1,
+    Holding = 2
 
 }
 
 
 public class Hand : MonoBehaviour
 {
-    public Transform t;
+    public List<GameObject> hands;
+    
     public int strengh;
     public HandMode hm;
-    
+    private int hmIndex;
 
-    public void ChangeHandMode(HandMode hm)
+    public void ChangeHandMode()
     {
-        Debug.Log("change hand mode");
+        hands[hmIndex].SetActive(false);
+        hmIndex = (hmIndex+1) % 3;
+        hm = (HandMode)hmIndex;
+
+        hands[hmIndex].SetActive(true);
+        //Debug.Log("change hand mode" + hm.ToString());
     }
 
     public bool Hold()
@@ -32,6 +38,7 @@ public class Hand : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameController.canHold = true;
+        Debug.Log("pau");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -43,12 +50,14 @@ public class Hand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        hmIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (GameController.canHold)
             Debug.Log("pode apertar");
     }

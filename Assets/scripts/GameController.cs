@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
+    private static GameController _instance;
+    public static GameController Instance { get { return _instance; } }
+    private float time;
     public Hand playerHand, cpuHand;
     public Player p;
     bool handsHolding;
@@ -14,6 +16,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = Time.time;
         canHold = false;
     }
 
