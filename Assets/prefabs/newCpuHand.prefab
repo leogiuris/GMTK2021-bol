@@ -235,10 +235,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c0c4d65c996e34286c1df0d075ac22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 0}
+  hand: {fileID: 8897461205646806789}
   gameCon: {fileID: 0}
-  bodies: []
-  faces: []
+  bodies:
+  - {fileID: 21300000, guid: 020059bc49c803f4696d29f2e344c091, type: 3}
+  - {fileID: 21300000, guid: bedbdf9fb9b2b314d96768ba53605bbf, type: 3}
+  - {fileID: 21300000, guid: d7c9878d5bb71654bb4133542d0bb2cd, type: 3}
+  faces:
+  - {fileID: 21300000, guid: 51da715af79fc78479965efb89cffa4c, type: 3}
+  - {fileID: 21300000, guid: b2fba4a0e148f6e4ca3be0a9a8e3cf5a, type: 3}
+  - {fileID: 21300000, guid: 1498b586b6332ff4789d9771b05e7363, type: 3}
   body: {fileID: 0}
   face: {fileID: 0}
   npcSpeed: 0
