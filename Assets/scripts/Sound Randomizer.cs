@@ -15,7 +15,7 @@ public class SoundManagerScript : MonoBehaviour
 
         void Start()
         {
-           List<BackgroundSound> backgroundsounds = new List<BackgroundSound>
+            List<string> backgroundsounds = new List<string>
             source = GetComponent<AudioSource>();
 
             backgroundsounds.Add(new BackgroundSound("OpenBeer", 1));
