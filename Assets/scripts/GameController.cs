@@ -15,23 +15,22 @@ public class GameController : MonoBehaviour
 
     //estado do jogo
     public bool dialogue = true;
-    public static bool isPaused;
+    public static bool isPaused = false;
 
     //data
     public Hand playerHand, cpuHand;
     public GameObject player, cpu;
     private Transform t_player, t_cpu;
     bool handsHolding;
-    int level;
+ 
     public int score = 0;
     public static bool canHold;
 
     //UI
-    public GameObject pauseMenu;
-    public GameObject dialoguePanel;
+    public UI_Manager ui;
 
-    //Utils
-    Timer timer;
+
+
 
 
     private void Awake()
@@ -46,10 +45,32 @@ public class GameController : MonoBehaviour
         }
     }
 
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //config camera
+        c = GameObject.Find("Main Camera");
+        gamePoint = c.transform.position;
+        dialogPoint = new Vector3(0, 100, 0);
+        canHold = false;
+        t_player = player.transform;
+        t_cpu = cpu.transform;
+        player.SetActive(false);
+        cpu.SetActive(false);
+
+        ShowDialogue();
+
+    }
+
+
+
+
+
     public void ShowDialogue()
     {
         dialogue = true;
-        dialoguePanel.SetActive(true);
+        ui.dialoguePanel.SetActive(true);
         c.transform.position = dialogPoint;
         
     }
@@ -62,31 +83,12 @@ public class GameController : MonoBehaviour
         player.GetComponent<Hand>().Reset();
         cpu.GetComponent<Hand>().Reset();
 
-        player.transform.position = t_player.position;
-        cpu.transform.position = t_cpu.position;
+
         
         c.transform.position = gamePoint;
         Cursor.visible = false;
-        timer.StartTimer();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //config camera
-        c = GameObject.Find("Main Camera");
-        gamePoint = c.transform.position;
-        dialogPoint = new Vector3(0, 100, 0);
-        pauseMenu.SetActive(false);
-        level = 0;
-        canHold = false;
-        timer = new Timer();
-        t_player = player.transform;
-        t_cpu = cpu.transform;
-        player.SetActive(false);
-        cpu.SetActive(false);
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -97,6 +99,9 @@ public class GameController : MonoBehaviour
         Tests();
     }
 
+
+
+
     public void Pause()
     {
         Debug.Log("pause");
@@ -104,7 +109,7 @@ public class GameController : MonoBehaviour
         {
             Time.timeScale = 1f;
             isPaused = false;
-            pauseMenu.SetActive(false);
+            ui.pauseMenu.SetActive(false);
             Cursor.visible = false;
             //SoundManagerScript.PlaySound("OpenMenu");
         }
@@ -113,13 +118,15 @@ public class GameController : MonoBehaviour
         {
             Time.timeScale = 0f;
             isPaused = true;
-            pauseMenu.SetActive(true);
-            //SoundManagerScript.PlaySound("OpenMenu");
+            ui.pauseMenu.SetActive(true);
+
         }
     }
 
     public void Win()
     {
+        player.SetActive(false);
+        cpu.SetActive(false);
         ShowDialogue();
     }
     public void Lose()
@@ -131,10 +138,10 @@ public class GameController : MonoBehaviour
     {
         if (dialogue)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 dialogue = false;
-                dialoguePanel.SetActive(false);
+                ui.dialoguePanel.SetActive(false);
                 StartHandShake();
             }
         }
@@ -150,7 +157,7 @@ public class GameController : MonoBehaviour
     // ---------------- DEBUG -----------------
     void Tests()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) Debug.Log(timer.getTime());
+
     }
 
 }

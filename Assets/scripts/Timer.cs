@@ -8,7 +8,6 @@ public class Timer : MonoBehaviour
     private float init;
 
 
-
     public void StartTimer()
     {
         init = Time.timeSinceLevelLoad;

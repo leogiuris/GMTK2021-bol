@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
 {
+    public GameObject winPanel;
+    public GameObject losePanel;
+    public GameObject dialoguePanel;
+    public GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
