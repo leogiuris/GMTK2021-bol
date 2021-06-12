@@ -5,8 +5,10 @@ using UnityEngine;
 
 public enum HandMode
 {
-    HandShake = 1,
-    FistBump = 2
+    Palm = 1,
+    FistBump = 2,
+    Holding = 3
+
 }
 
 
@@ -24,7 +26,7 @@ public class Hand : MonoBehaviour
 
     public bool Hold()
     {
-        return hm == HandMode.HandShake;
+        return hm == HandMode.Palm;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
