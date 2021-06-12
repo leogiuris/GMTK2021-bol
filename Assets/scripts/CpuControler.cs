@@ -51,8 +51,8 @@ public class CpuControler : MonoBehaviour
         {
             transform.position += new Vector3(hSpeed * Time.deltaTime, 0, 0) ;
 
-            rot -= ySpeed;
-            transform.rotation = Quaternion.Euler(0, 0, rot * Time.deltaTime);
+            rot -= ySpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0, 0, rot);
         }
 
     }
