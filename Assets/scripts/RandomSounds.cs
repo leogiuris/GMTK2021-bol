@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManagerScript : MonoBehaviour
-{
+
     public class RandomSounds : MonoBehaviour
     {
-        public List<AudioClip> audioClips;
-        public AudioClip currentClip;
+        public string currentClip;
         public AudioSource source;
-        public float minWaitBetweenPlays = 30f;
-        public float maxWaitBetweenPlays = 1200f;
+        public float minWaitBetweenPlays = 1f;
+        public float maxWaitBetweenPlays = 20f;
         public float waitTimeCountdown = -1f;
+    public List<string> audioClips;
+    public SoundManagerScript manager;
 
         void Start()
-        {
-            List<string> backgroundsounds = new List<string>
+        {  
             source = GetComponent<AudioSource>();
-
-            backgroundsounds.Add(new BackgroundSound("OpenBeer", 1));
-            backgroundsounds.Add(new BackgroundSound("Clink", 2));
         }
 
         void Update()
@@ -29,8 +25,7 @@ public class SoundManagerScript : MonoBehaviour
                 if (waitTimeCountdown < 0f)
                 {
                     currentClip = audioClips[Random.Range(0, audioClips.Count)];
-                    source.clip = currentClip;
-                    source.Play();
+                manager.PlaySound(currentClip);
                     waitTimeCountdown = Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
                 }
                 else
@@ -41,7 +36,3 @@ public class SoundManagerScript : MonoBehaviour
         }
     }
 
-
-
-
-}
