@@ -5,25 +5,8 @@ using UnityEngine;
 public class CpuControler : MonoBehaviour
 {
     public Hand hand;
-
-    //apearance
-    public List<Sprite> bodies;
-    public List<Sprite> faces;
-    public GameObject body;
-    public GameObject face;
-    private SpriteRenderer bodyRen;
-    private SpriteRenderer faceRen;
-    //NPC modifiers
-    public float npcSpeed;
-    public float npcChange;
-
-    //timer
+    public NPC npc;
     public float countDown = -1f;
-
-    //slide in and out;
-    public Transform spawn;
-    public Transform deSpawn;
-
 
     //movement
     public float hSpeed = 0;
@@ -33,11 +16,8 @@ public class CpuControler : MonoBehaviour
 
     void Start()
     {
-        bodyRen = body.gameObject.GetComponent<SpriteRenderer>();
-        faceRen = face.gameObject.GetComponent<SpriteRenderer>();
-
-        body.transform.position = spawn.transform.position;
-        ChangeNpc();
+        
+        
         Cursor.visible = false;
     }
 
@@ -47,6 +27,7 @@ public class CpuControler : MonoBehaviour
         Movement();
         //reduzir timer
         countDown -= Time.deltaTime;
+
     }
 
     void FixedUpdate()
@@ -57,12 +38,12 @@ public class CpuControler : MonoBehaviour
     {
         //formula movimento
         ySpeed = diff ;
-        hSpeed = diff * npcSpeed;
+        hSpeed = diff * npc.npcSpeed;
         //formula trocamão
         if(countDown<0)
         {
             hand.ChangeHandMode();
-            countDown = npcChange * diff;
+            countDown = npc.npcChange * diff;
         }
 
         //Movimento
@@ -73,15 +54,6 @@ public class CpuControler : MonoBehaviour
             rot -= ySpeed;
             transform.rotation = Quaternion.Euler(0, 0, rot * Time.deltaTime);
         }
-
-    }
-
-    private void ChangeNpc()
-    {
-        bodyRen.sprite = bodies[Random.Range(0, bodies.Count)];
-        faceRen.sprite = faces[Random.Range(0, faces.Count)];
-        npcChange = bodies.IndexOf(bodyRen.sprite);
-        npcSpeed = faces.IndexOf(faceRen.sprite);
 
     }
 
