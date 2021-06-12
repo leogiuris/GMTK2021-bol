@@ -27,6 +27,14 @@ public class GameController : MonoBehaviour
     public int score = 0;
     public static bool canHold;
 
+    //awkwardness meter
+    public GameObject meter;
+    public float awkwardness = 0;
+    public float awkwardMod = 1;
+    public float maxHangtime = 0.5f;
+    public float hangtime = 0.5f;
+    public float handsOn = 0;
+
     //UI
     public UI_Manager ui;
 
@@ -95,7 +103,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         Gamestate();
-
+        AwkwardControl();
         //DEBUG
         Tests();
     }
@@ -126,6 +134,7 @@ public class GameController : MonoBehaviour
 
     public void Win()
     {
+        hangtime = maxHangtime;
         player.SetActive(false);
         cpu.SetActive(false);
         ShowDialogue();
@@ -133,6 +142,7 @@ public class GameController : MonoBehaviour
     }
     public void Lose()
     {
+        hangtime = maxHangtime;
         ShowDialogue();
     }
 
@@ -153,6 +163,20 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
         
+    }
+
+    private void AwkwardControl()
+    {
+        if(handsOn >0)
+        {
+            hangtime -= (awkwardMod / handsOn) * Time.deltaTime;
+            if (hangtime <= 0)
+            {
+                Debug.Log("hanging");
+                awkwardness += (awkwardMod / handsOn) * Time.deltaTime;
+            }
+
+        }
     }
 
 
