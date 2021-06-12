@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Hand hand;
     public float hSpeed = 1;
     public float hDir;
-    public float ySpeed = 1;
+    public float ySpeed = 0.5f;
     public float yDir;
     private float rot;
 
