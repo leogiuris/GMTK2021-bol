@@ -50,10 +50,18 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //checar se esse script e da mão do player para evitar redundancias
-        if (amPlayer)
+
+        GameController.canHold = true;
+        if (other.tag == "awkward zone")
         {
-            GameController.canHold = true;
+            //GameController.Instance.handsOn++;
+            Debug.Log("awkward");
+        }
+
+        //checar se esse script e da mão do player para evitar redundancias
+        else if (amPlayer)
+        {
+            
             //checar se a combinação de mãos esta correta
             if(other.tag == hands[hmIndex].tag)
             {
@@ -66,6 +74,7 @@ public class Hand : MonoBehaviour
                 GameController.Instance.Lose();
             }
         }
+        
         
         
     }
