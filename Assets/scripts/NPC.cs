@@ -36,7 +36,7 @@ public class NPC : MonoBehaviour
     {
         
     }
-    private void ChangeNpc()
+    public void ChangeNpc()
     {
         bodyRen.sprite = bodies[Random.Range(0, bodies.Count)];
         faceRen.sprite = faces[Random.Range(0, faces.Count)];

@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public static bool isPaused = false;
 
     //data
+    public NPC npc;
     public Hand playerHand, cpuHand;
     public GameObject player, cpu;
     private Transform t_player, t_cpu;
@@ -128,6 +129,7 @@ public class GameController : MonoBehaviour
         player.SetActive(false);
         cpu.SetActive(false);
         ShowDialogue();
+        npc.ChangeNpc();
     }
     public void Lose()
     {
