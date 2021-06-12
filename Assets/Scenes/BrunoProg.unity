@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+=======
   m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+>>>>>>> b2b3891b676c6910905afee8635691fbaf91c5bd
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,8 +179,13 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
+<<<<<<< HEAD
+  orthographic: 0
+  orthographic size: 5
+=======
   orthographic: 1
   orthographic size: 3
+>>>>>>> b2b3891b676c6910905afee8635691fbaf91c5bd
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -299,6 +308,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!1001 &6304995043873174779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,7 +323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6304995044056403768, guid: 230cc458179e9c248ba4e4452f17afa9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 6304995044056403768, guid: 230cc458179e9c248ba4e4452f17afa9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -369,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209251752349978844, guid: 4879eb4890487944583c7da594447c99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.55
+      value: -12.15
       objectReference: {fileID: 0}
     - target: {fileID: 5209251752349978844, guid: 4879eb4890487944583c7da594447c99, type: 3}
       propertyPath: m_LocalPosition.y
@@ -413,3 +424,4 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4879eb4890487944583c7da594447c99, type: 3}
+>>>>>>> b2b3891b676c6910905afee8635691fbaf91c5bd
