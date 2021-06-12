@@ -19,6 +19,21 @@ public class Hand : MonoBehaviour
     public HandMode hm;
     private int hmIndex;
 
+    private Vector3 init_pos;
+    private Quaternion init_rot;
+
+    private void Awake()
+    {
+        init_pos = this.transform.position;
+        init_rot = this.transform.rotation;
+    }
+
+    public void Reset()
+    {
+        this.transform.position = init_pos;
+        this.transform.rotation = init_rot;
+    }
+
     public void ChangeHandMode()
     {
         hands[hmIndex].SetActive(false);

@@ -49,16 +49,23 @@ public class GameController : MonoBehaviour
     public void ShowDialogue()
     {
         dialogue = true;
-        Destroy(player);
-        Destroy(cpu);
+        dialoguePanel.SetActive(true);
+        c.transform.position = dialogPoint;
+        
     }
 
     void StartHandShake()
     {
-        player.transform.position = t_player.position;
-        cpu.transform.position = t_cpu.position;
         player.SetActive(true);
         cpu.SetActive(true);
+
+        player.GetComponent<Hand>().Reset();
+        cpu.GetComponent<Hand>().Reset();
+
+        player.transform.position = t_player.position;
+        cpu.transform.position = t_cpu.position;
+        
+        c.transform.position = gamePoint;
         Cursor.visible = false;
         timer.StartTimer();
     }
@@ -113,33 +120,29 @@ public class GameController : MonoBehaviour
 
     public void Win()
     {
-        dialogue = true;
-        dialoguePanel.SetActive(true);
+        ShowDialogue();
     }
     public void Lose()
     {
-        dialogue = true;
-        dialoguePanel.SetActive(true);
+        ShowDialogue();
     }
 
     private void Gamestate()
     {
         if (dialogue)
         {
-            c.transform.position = dialogPoint;
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                dialogue = false;
+                dialoguePanel.SetActive(false);
+                StartHandShake();
+            }
         }
-        else
+        if (isPaused)
         {
-            c.transform.position = gamePoint;
+            // coisas p fazer no menu de pause
         }
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            dialogue = false;
-            dialoguePanel.SetActive(false);
-            StartHandShake();
-        }
-        
         
     }
 
