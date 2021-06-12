@@ -5,7 +5,7 @@ using UnityEngine;
 public class CpuControler : MonoBehaviour
 {
     public Hand hand;
-    public GameController gameCon;
+
     //apearance
     public List<Sprite> bodies;
     public List<Sprite> faces;

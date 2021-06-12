@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0f;
             isPaused = true;
             ui.pauseMenu.SetActive(true);
-            //SoundManagerScript.PlaySound("OpenMenu");
+
         }
     }
 
