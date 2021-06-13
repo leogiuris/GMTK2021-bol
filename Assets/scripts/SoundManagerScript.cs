@@ -54,6 +54,7 @@ public class SoundManagerScript : MonoBehaviour
             PlaySound("mumble1");
         }
     }
+
     public void PlaySound (string clip)
     {
         switch (clip)
