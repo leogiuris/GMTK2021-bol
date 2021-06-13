@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip slap, shake, bump, win, lose, stance1, stance2, pause, unpause, mumble1, mumble2, mumble3,
+    public static AudioClip slap, shake, bump, win, lose, stance1, stance2, pause, unpause, hover, gameover, winscreen, enemy, start, mumble1, mumble2, mumble3,
         mumble4, mumble5, mumble6, mumble7, mumble8, mumble9, mumble10, mumble11, winreact1, winreact2, winreact3,
         winreact4, losereact1, losereact2, losereact3, losereact4;
 
@@ -22,6 +22,11 @@ public class SoundManagerScript : MonoBehaviour
         stance2 = Resources.Load<AudioClip>("stance2");
         pause = Resources.Load<AudioClip>("pause");
         unpause = Resources.Load<AudioClip>("unpause");
+        hover = Resources.Load<AudioClip>("hover");
+        gameover = Resources.Load<AudioClip>("gameover");
+        winscreen = Resources.Load<AudioClip>("winscreen");
+        enemy = Resources.Load<AudioClip>("enemy");
+        start = Resources.Load<AudioClip>("start");
         mumble1 = Resources.Load<AudioClip>("mumble1");
         mumble2 = Resources.Load<AudioClip>("mumble2");
         mumble3 = Resources.Load<AudioClip>("mumble3");
@@ -82,6 +87,21 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "unpause":
                 audioSrc.PlayOneShot(unpause);
+                break;
+            case "hover":
+                audioSrc.PlayOneShot(hover);
+                break;
+            case "gameover":
+                audioSrc.PlayOneShot(gameover);
+                break;
+            case "winscreen":
+                audioSrc.PlayOneShot(winscreen);
+                break;
+            case "enemy":
+                audioSrc.PlayOneShot(enemy);
+                break;
+            case "start":
+                audioSrc.PlayOneShot(start);
                 break;
             case "mumble1":
                 audioSrc.PlayOneShot(mumble1);
