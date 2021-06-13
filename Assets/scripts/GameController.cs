@@ -26,12 +26,13 @@ public class GameController : MonoBehaviour
     private Transform t_player, t_cpu;
     bool handsHolding;
 
-    public int score = 0;
+    public int lives;
     public static bool canHold;
 
     //awkwardness meter
     public GameObject meter;
     public float awkwardness = 0;
+    public float awkwardMAX = 2.5f;
     public float awkwardMod = 1;
     public float maxHangtime = 0.5f;
     public float hangtime = 0.5f;
@@ -72,6 +73,8 @@ public class GameController : MonoBehaviour
         gamePoint = c.transform.position;
         dialogPoint = new Vector3(0, 100, 0);
         reactionPoint = new Vector3(0, 300, 0);
+
+        lives = 3;
         canHold = false;
         t_player = player.transform;
         t_cpu = cpu.transform;
@@ -94,6 +97,8 @@ public class GameController : MonoBehaviour
         c.transform.position = dialogPoint;
 
     }
+
+    
 
     void StartHandShake()
     {
@@ -143,6 +148,7 @@ public class GameController : MonoBehaviour
 
         }
     }
+
     public void Reaction()
     {
         c.transform.position = reactionPoint;
@@ -186,9 +192,16 @@ public class GameController : MonoBehaviour
     public void Lose()
     {
         Stop();
+        lives--;
+        if (lives == 0)
+            GameOver();
         reactionInt = 1;
         Reaction();
 
+    }
+    public void GameOver()
+    {
+        Stop();
     }
 
     private void Gamestate()
@@ -220,6 +233,8 @@ public class GameController : MonoBehaviour
                 Debug.Log("hanging");
                 awkwardness += (awkwardMod / handsOn) * Time.deltaTime;
             }
+            if (awkwardness > awkwardMAX)
+                Lose();
 
         }
     }

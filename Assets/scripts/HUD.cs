@@ -9,6 +9,9 @@ public class HUD : MonoBehaviour
     public GameObject scoreBar;
     public List<Sprite> smileys;
     public GameObject knob;
+    public List<GameObject> lives;
+    private int lifeIndex;
+
 
     
 
@@ -23,7 +26,7 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        lifeIndex = 0;
     }
 
     void Update()
