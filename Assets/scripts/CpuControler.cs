@@ -17,8 +17,7 @@ public class CpuControler : MonoBehaviour
     void Start()
     {
         
-        
-        Cursor.visible = false;
+       
     }
 
 

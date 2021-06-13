@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -167,9 +168,12 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                if (lives == 0)
+                    GameOver();
                 running = false;
                 ShowDialogue();
                 npc.ChangeNpc();
+               
             }
         }
     }
@@ -193,8 +197,7 @@ public class GameController : MonoBehaviour
     {
         Stop();
         lives--;
-        if (lives == 0)
-            GameOver();
+        
         reactionInt = 1;
         Reaction();
 
@@ -202,6 +205,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         Stop();
+        SceneManager.LoadScene("GameOver");
     }
 
     private void Gamestate()
