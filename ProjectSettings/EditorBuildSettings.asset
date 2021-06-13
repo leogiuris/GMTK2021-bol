@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 05fcd0424fc663d4ea7f0e9b2decf163
   - enabled: 1
     path: Assets/Scenes/LeoPogDaddy.unity
-    guid: e54a4778c1831e845b1ca4b47043e33c
+    guid: 6fbe6fc7ca785794b843e88373004013
   m_configObjects: {}

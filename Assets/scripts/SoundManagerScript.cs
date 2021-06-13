@@ -49,13 +49,10 @@ public class SoundManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            PlaySound("mumble1");
-        }
+
     }
 
-    public void PlaySound (string clip)
+    public static void PlaySound (string clip)
     {
         switch (clip)
         {

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     private Vector3 gamePoint;
     private Vector3 reactionPoint;
 
+
     //estado do jogo
     public bool dialogue = true;
     public static bool isPaused = false;
@@ -39,6 +40,8 @@ public class GameController : MonoBehaviour
     public float hangtime = 0.5f;
     public float handsOn = 0;
     private int reactionInt = 0;//0 = win, 1 = lose;
+    public List<string> reSounds1;
+    public List<string> reSounds2;
 
     //timer
     private float countDown = -1f;
@@ -69,6 +72,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //sons de reação
         //config camera
         c = GameObject.Find("Main Camera");
         gamePoint = c.transform.position;
@@ -152,6 +156,17 @@ public class GameController : MonoBehaviour
 
     public void Reaction()
     {
+        /*int roll;
+        roll = Random.Range(0, 3);
+        if(reactionInt == 0)
+        {
+            SoundManagerScript.PlaySound(reSounds1[roll]);
+        }
+        else
+        {
+            SoundManagerScript.PlaySound(reSounds2[roll]);
+        }*/
+
         c.transform.position = reactionPoint;
         npc.reFace.sprite = npc.reFaces[reactionInt];
         countDown = reactionTime;

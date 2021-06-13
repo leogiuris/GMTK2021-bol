@@ -10,8 +10,7 @@ using UnityEngine;
         public float minWaitBetweenPlays = 1f;
         public float maxWaitBetweenPlays = 10f;
         public float waitTimeCountdown = -1f;
-    public List<string> audioClips;
-    public SoundManagerScript manager;
+        public List<string> audioClips;
 
         void Start()
         {  
@@ -25,7 +24,7 @@ using UnityEngine;
                 if (waitTimeCountdown < 0f)
                 {
                     currentClip = audioClips[Random.Range(0, audioClips.Count)];
-                manager.PlaySound(currentClip);
+                    SoundManagerScript.PlaySound(currentClip);
                     waitTimeCountdown = Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
                 }
                 else

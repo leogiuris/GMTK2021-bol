@@ -65,11 +65,27 @@ public class Hand : MonoBehaviour
             //checar se a combinação de mãos esta correta
             if(other.tag == hands[hmIndex].tag)
             {
+                //barulinho
+                switch(hmIndex)
+                {
+                    case 0:
+                        SoundManagerScript.PlaySound("shake");
+                        break;
+                    case 1:
+                        SoundManagerScript.PlaySound("bump");
+                        break;
+                    case 2:
+                        SoundManagerScript.PlaySound("slap");
+                        break;
+
+                }
                 Debug.Log("deubom");
                 GameController.Instance.Win();
+                
             }
             else
             {
+                SoundManagerScript.PlaySound("lose");
                 Debug.Log("deuruim");
                 GameController.Instance.Lose();
             }

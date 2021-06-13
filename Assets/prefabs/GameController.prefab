@@ -44,10 +44,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: 1
+  npc: {fileID: 0}
   playerHand: {fileID: 0}
   cpuHand: {fileID: 0}
   player: {fileID: 0}
   cpu: {fileID: 0}
-  score: 0
-  pauseMenu: {fileID: 0}
-  dialoguePanel: {fileID: 0}
+  lives: 0
+  meter: {fileID: 0}
+  awkwardness: 0
+  awkwardMAX: 2.5
+  awkwardMod: 1
+  maxHangtime: 0.5
+  hangtime: 0.5
+  handsOn: 0
+  reSounds1:
+  - winreact1
+  - winreact2
+  - winreact3
+  - winreact4
+  reSounds2:
+  - losereact1
+  - losereact2
+  - losereact3
+  - losereact4
+  ui: {fileID: 0}

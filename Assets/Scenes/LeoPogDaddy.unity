@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -714,9 +714,10 @@ MonoBehaviour:
   cpuHand: {fileID: 1081440679}
   player: {fileID: 1143987639}
   cpu: {fileID: 1237920897}
-  score: 0
+  lives: 0
   meter: {fileID: 0}
   awkwardness: 0
+  awkwardMAX: 2.5
   awkwardMod: 1
   maxHangtime: 0.5
   hangtime: 0.5
@@ -1082,6 +1083,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3290624595745693504, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693504, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693504, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693504, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1136,6 +1149,26 @@ PrefabInstance:
     - target: {fileID: 3290624595745693508, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693510, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693510, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693510, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693511, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 718542289}
+    - target: {fileID: 3290624595745693511, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3290624596953768168, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_MaxValue
