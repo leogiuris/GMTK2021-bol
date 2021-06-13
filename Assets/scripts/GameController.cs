@@ -28,11 +28,10 @@ public class GameController : MonoBehaviour
     private Transform t_player, t_cpu;
     bool handsHolding;
 
-    public int lives;
+    public int lives ;
     public static bool canHold;
 
     //awkwardness meter
-    public GameObject meter;
     public float awkwardness = 0;
     public float awkwardMAX = 2.5f;
     public float awkwardMod = 1;
@@ -79,7 +78,6 @@ public class GameController : MonoBehaviour
         dialogPoint = new Vector3(0, 100, 0);
         reactionPoint = new Vector3(0, 300, 0);
 
-        lives = 3;
         canHold = false;
         t_player = player.transform;
         t_cpu = cpu.transform;

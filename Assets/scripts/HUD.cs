@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+    public GameController controller;
     public GameObject scoreBar;
     public List<Sprite> smileys;
     public GameObject knob;
     public List<GameObject> lives;
-    private int lifeIndex;
-    private int maxLife;
+    public int lifeIndex;
+    public int maxLife;
 
     
 
@@ -24,16 +25,17 @@ public class HUD : MonoBehaviour
     void Start()
     {
 
-        maxLife = GameController.Instance.lives;
+        maxLife = controller.lives;
         
     }
 
     void Update()
     {
-        lifeIndex = maxLife - GameController.Instance.lives;
+        lifeIndex = maxLife - controller.lives;
 
         for(int i = 0; i < lifeIndex; i++)
         {
+            Debug.Log("desenho vida");
             lives[lifeIndex - 1].SetActive(true);
         }
 
@@ -46,7 +48,7 @@ public class HUD : MonoBehaviour
         else
             knob.GetComponent<Image>().sprite = smileys[2];
 
-        Debug.Log(GameController.Instance.awkwardness);
+        //Debug.Log(GameController.Instance.awkwardness);
     }
 
 }
