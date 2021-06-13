@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
         c = GameObject.Find("Main Camera");
         gamePoint = c.transform.position;
         dialogPoint = new Vector3(0, 100, 0);
-        dialogPoint = new Vector3(0, 300, 0);
+        reactionPoint = new Vector3(0, 300, 0);
         canHold = false;
         t_player = player.transform;
         t_cpu = cpu.transform;
