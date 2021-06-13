@@ -18,6 +18,7 @@ public class Hand : MonoBehaviour
     public int strengh;
     public HandMode hm;
     private int hmIndex;
+    
 
     private Vector3 init_pos;
     private Quaternion init_rot;
@@ -32,6 +33,7 @@ public class Hand : MonoBehaviour
     {
         this.transform.position = init_pos;
         this.transform.rotation = init_rot;
+        
     }
 
     public void ChangeHandMode()

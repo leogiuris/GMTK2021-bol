@@ -8,21 +8,29 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public Hand hand;
-   
+
     public float hSpeed = 1;
     public float hDir;
     public float ySpeed = 0.5f;
     public float yDir;
     private float rot;
-
+    public Transform t_init;
+    public Vector3 mouse_init;
+    
     
 
     void Start()
     {
+        mouse_init = Input.mousePosition;
+        
         rot = 20;
     }
 
     
+    public void ResetMouse()
+    {
+        mouse_init = Input.mousePosition;
+    }
 
     void Update()
     {
@@ -31,8 +39,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        transform.position = Input.mousePosition / 100;
+        
+        transform.position = t_init.position + (Input.mousePosition / 100) - (mouse_init/100);
     }
 
     

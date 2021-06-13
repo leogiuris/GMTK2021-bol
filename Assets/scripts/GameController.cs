@@ -109,7 +109,9 @@ public class GameController : MonoBehaviour
         cpu.SetActive(true);
 
         player.GetComponent<Hand>().Reset();
+        player.GetComponent<Player>().ResetMouse();
         cpu.GetComponent<Hand>().Reset();
+        
         ui.HUD.SetActive(true);
 
 
