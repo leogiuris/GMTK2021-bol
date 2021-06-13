@@ -90,6 +90,7 @@ public class GameController : MonoBehaviour
     {
         dialogue = true;
         ui.dialoguePanel.SetActive(true);
+        ui.HUD.SetActive(false);
         c.transform.position = dialogPoint;
 
     }
@@ -101,7 +102,7 @@ public class GameController : MonoBehaviour
 
         player.GetComponent<Hand>().Reset();
         cpu.GetComponent<Hand>().Reset();
-
+        ui.HUD.SetActive(true);
 
 
         c.transform.position = gamePoint;
@@ -167,21 +168,24 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Win()
+    private void Stop()
     {
+        ui.HUD.SetActive(false);
         hangtime = maxHangtime;
         handsOn = 0;
         player.SetActive(false);
         cpu.SetActive(false);
+        awkwardness = 0;
+    }
+    public void Win()
+    {
+        Stop();
         reactionInt = 0;
         Reaction();
     }
     public void Lose()
     {
-        hangtime = maxHangtime;
-        handsOn = 0;
-        player.SetActive(false);
-        cpu.SetActive(false);
+        Stop();
         reactionInt = 1;
         Reaction();
 

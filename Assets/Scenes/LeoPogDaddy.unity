@@ -1017,6 +1017,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7340431658712977408, guid: 7fc16d1124ab36047a47272987d3fc7b, type: 3}
   m_PrefabInstance: {fileID: 1413801209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136444779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3290624596734663447, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+  m_PrefabInstance: {fileID: 3290624595616322684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3290624595616322684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,6 +1032,18 @@ PrefabInstance:
     - target: {fileID: 3290624595267837948, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595267837949, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34501344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595267837949, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_Color.g
+      value: 0.34501344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624595267837949, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3290624595745693504, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_Pivot.x
@@ -1112,9 +1129,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3290624595745693505, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 2136444779}
     - target: {fileID: 3290624595745693508, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624596953768168, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_MaxValue
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624596953768168, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290624596953768175, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 235.05
       objectReference: {fileID: 0}
     - target: {fileID: 3290624597167114443, guid: 2c6afdfd385937d4f898855c10034d86, type: 3}
       propertyPath: m_AnchorMax.y
