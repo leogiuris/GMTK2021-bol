@@ -9,7 +9,7 @@ public class StartMenu : MonoBehaviour
     
     public void LoadLevel()
     {
-        SceneManager.LoadScene("LeoPogDaddy");
+        SceneManager.LoadScene("Brunovsky");
     }
 
     public void LoadCredits()

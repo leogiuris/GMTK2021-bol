@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     }
     public void ClickYes()
     {
-        SceneManager.LoadScene("LeoPogDaddy");
+        SceneManager.LoadScene("Brunovsky");
     }
     public void ClickNo()
     {

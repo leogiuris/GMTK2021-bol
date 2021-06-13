@@ -31,18 +31,15 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        transform.position += new Vector3(hSpeed* hDir,0,0);
-        rot += ySpeed * (-yDir);
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+
+        transform.position = Input.mousePosition / 100;
     }
 
     
 
     private void PlayerInput()
     {
-        hDir = (Input.GetAxis("Mouse X"));
-        yDir = (Input.GetAxis("Mouse Y"));
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if(!GameController.Instance.dialogue)
