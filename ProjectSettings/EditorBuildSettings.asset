@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeoPogDaddy.unity
     guid: 6fbe6fc7ca785794b843e88373004013
+  - enabled: 1
+    path: Assets/Scenes/Brunovsky.unity
+    guid: 850caa957a859d34f8b211bc702da6c3
   m_configObjects: {}
