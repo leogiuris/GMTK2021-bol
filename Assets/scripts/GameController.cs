@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
 
     //timer
     private float countDown = -1f;
-    private float reactionTime = 3;
+    private float reactionTime = 1;
     private bool running = false;
 
 
