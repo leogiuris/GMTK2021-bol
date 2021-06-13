@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
     private Transform t_player, t_cpu;
     bool handsHolding;
 
-    public int lives ;
+    public int lives;
     public static bool canHold;
 
     //awkwardness meter
