@@ -8,7 +8,7 @@ using UnityEngine;
         public string currentClip;
         public AudioSource source;
         public float minWaitBetweenPlays = 1f;
-        public float maxWaitBetweenPlays = 20f;
+        public float maxWaitBetweenPlays = 10f;
         public float waitTimeCountdown = -1f;
     public List<string> audioClips;
     public SoundManagerScript manager;
