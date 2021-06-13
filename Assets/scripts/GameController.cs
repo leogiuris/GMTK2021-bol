@@ -156,16 +156,16 @@ public class GameController : MonoBehaviour
 
     public void Reaction()
     {
-        /*int roll;
+        int roll;
         roll = Random.Range(0, 3);
         if(reactionInt == 0)
         {
-            SoundManagerScript.PlaySound(reSounds1[roll]);
+           SoundManagerScript.PlaySound(reSounds1[roll]);
         }
         else
         {
             SoundManagerScript.PlaySound(reSounds2[roll]);
-        }*/
+        }
 
         c.transform.position = reactionPoint;
         npc.reFace.sprite = npc.reFaces[reactionInt];

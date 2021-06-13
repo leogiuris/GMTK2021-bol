@@ -33,14 +33,14 @@ public class SoundManagerScript : MonoBehaviour
         mumble9 = Resources.Load<AudioClip>("mumble9");
         mumble10 = Resources.Load<AudioClip>("mumble10");
         mumble11 = Resources.Load<AudioClip>("mumble11");
-        winreact1 = Resources.Load<AudioClip>("winreact1");
-        winreact2 = Resources.Load<AudioClip>("winreact2");
-        winreact3 = Resources.Load<AudioClip>("winreact3");
-        winreact4 = Resources.Load<AudioClip>("winreact4");
-        losereact1 = Resources.Load<AudioClip>("losereact1");
-        losereact2 = Resources.Load<AudioClip>("losereact2");
-        losereact3 = Resources.Load<AudioClip>("losereact3");
-        losereact4 = Resources.Load<AudioClip>("losereact4");
+        winreact1 = Resources.Load<AudioClip>("win reaction1");
+        winreact2 = Resources.Load<AudioClip>("win reaction2");
+        winreact3 = Resources.Load<AudioClip>("win reaction3");
+        winreact4 = Resources.Load<AudioClip>("win reaction4");
+        losereact1 = Resources.Load<AudioClip>("lose reaction1");
+        losereact2 = Resources.Load<AudioClip>("lose reaction2");
+        losereact3 = Resources.Load<AudioClip>("lose reaction3");
+        losereact4 = Resources.Load<AudioClip>("lose reaction4");
 
         audioSrc = GetComponent<AudioSource>();
         
