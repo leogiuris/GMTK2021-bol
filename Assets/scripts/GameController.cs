@@ -38,6 +38,11 @@ public class GameController : MonoBehaviour
     public float handsOn = 0;
     private int reactionInt = 0;//0 = win, 1 = lose;
 
+    //timer
+    private float countDown = -1f;
+    private float reactionTime = 3;
+    private bool running = false;
+
 
     //UI
     public UI_Manager ui;
@@ -109,6 +114,7 @@ public class GameController : MonoBehaviour
     {
         Gamestate();
         AwkwardControl();
+        Timer();
         //DEBUG
         Tests();
     }
@@ -140,21 +146,45 @@ public class GameController : MonoBehaviour
     {
         c.transform.position = reactionPoint;
         npc.reFace.sprite = npc.reFaces[reactionInt];
+        countDown = reactionTime;
+        running = true;
     }
+
+    private void Timer()
+    {
+        if (running)
+        {
+            if (countDown >= 0)
+            {
+                countDown -= Time.deltaTime;
+            }
+            else
+            {
+                running = false;
+                ShowDialogue();
+                npc.ChangeNpc();
+            }
+        }
+    }
+
     public void Win()
     {
         hangtime = maxHangtime;
         handsOn = 0;
         player.SetActive(false);
         cpu.SetActive(false);
-        ShowDialogue();
-        npc.ChangeNpc();
+        reactionInt = 0;
+        Reaction();
     }
     public void Lose()
     {
         hangtime = maxHangtime;
         handsOn = 0;
-        ShowDialogue();
+        player.SetActive(false);
+        cpu.SetActive(false);
+        reactionInt = 1;
+        Reaction();
+
     }
 
     private void Gamestate()
