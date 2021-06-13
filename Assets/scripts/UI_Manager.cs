@@ -9,6 +9,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject dialoguePanel;
     public GameObject pauseMenu;
     public GameObject HUD;
+    
 
     // Start is called before the first frame update
     void Start()

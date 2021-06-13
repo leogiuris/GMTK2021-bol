@@ -11,28 +11,31 @@ public class HUD : MonoBehaviour
     public GameObject knob;
     public List<GameObject> lives;
     private int lifeIndex;
-
+    private int maxLife;
 
     
 
 
-    public void updateGotasCounter(int n)
-    {
-        //gotas.text = ":  " + n + "/" + GameController.Instance.maxGotas;
-    }
+    
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        lifeIndex = 0;
+
+        maxLife = GameController.Instance.lives;
+        
     }
 
     void Update()
     {
+        lifeIndex = maxLife - GameController.Instance.lives;
 
-        
+        for(int i = 0; i < lifeIndex; i++)
+        {
+            lives[lifeIndex - 1].SetActive(true);
+        }
 
         scoreBar.GetComponent<Slider>().value = GameController.Instance.awkwardness;
 
