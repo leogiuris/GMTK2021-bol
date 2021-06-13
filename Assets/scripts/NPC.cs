@@ -11,6 +11,14 @@ public class NPC : MonoBehaviour
     public GameObject face;
     private SpriteRenderer bodyRen;
     private SpriteRenderer faceRen;
+    //reaction
+    public SpriteRenderer reHead;
+    public SpriteRenderer reFace;
+    public List<Sprite> reHeads;
+    public List<Sprite> reFaces;
+
+
+
     //NPC modifiers
     public float npcSpeed;
     public float npcChange;
@@ -38,10 +46,15 @@ public class NPC : MonoBehaviour
     }
     public void ChangeNpc()
     {
+
         bodyRen.sprite = bodies[Random.Range(0, bodies.Count)];
         faceRen.sprite = faces[Random.Range(0, faces.Count)];
+
+        reHead.sprite = reHeads[faces.IndexOf(faceRen.sprite)];
+
         npcChange = 1+bodies.IndexOf(bodyRen.sprite);
         npcSpeed = 1+faces.IndexOf(faceRen.sprite);
+
 
     }
 }

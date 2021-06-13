@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 649504907217264882}
   - component: {fileID: 2843972521612785311}
   - component: {fileID: 8897461205646806789}
+  - component: {fileID: 8660482633462652104}
   m_Layer: 0
   m_Name: newCpuHand
   m_TagString: Untagged
@@ -236,22 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 8897461205646806789}
-  gameCon: {fileID: 0}
-  bodies:
-  - {fileID: 21300000, guid: 020059bc49c803f4696d29f2e344c091, type: 3}
-  - {fileID: 21300000, guid: bedbdf9fb9b2b314d96768ba53605bbf, type: 3}
-  - {fileID: 21300000, guid: d7c9878d5bb71654bb4133542d0bb2cd, type: 3}
-  faces:
-  - {fileID: 21300000, guid: 51da715af79fc78479965efb89cffa4c, type: 3}
-  - {fileID: 21300000, guid: b2fba4a0e148f6e4ca3be0a9a8e3cf5a, type: 3}
-  - {fileID: 21300000, guid: 1498b586b6332ff4789d9771b05e7363, type: 3}
-  body: {fileID: 0}
-  face: {fileID: 0}
-  npcSpeed: 0
-  npcChange: 0
+  npc: {fileID: 0}
   countDown: -1
-  spawn: {fileID: 0}
-  deSpawn: {fileID: 0}
   hSpeed: 0
   ySpeed: 0
 --- !u!114 &8897461205646806789
@@ -270,6 +257,27 @@ MonoBehaviour:
   amPlayer: 0
   strengh: 0
   hm: 0
+--- !u!50 &8660482633462652104
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340431658664233381}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7340431658682224663
 GameObject:
   m_ObjectHideFlags: 0

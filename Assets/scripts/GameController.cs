@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     private GameObject c;
     private Vector3 dialogPoint;
     private Vector3 gamePoint;
+    private Vector3 reactionPoint;
 
     //estado do jogo
     public bool dialogue = true;
@@ -23,7 +25,7 @@ public class GameController : MonoBehaviour
     public GameObject player, cpu;
     private Transform t_player, t_cpu;
     bool handsHolding;
- 
+
     public int score = 0;
     public static bool canHold;
 
@@ -34,6 +36,8 @@ public class GameController : MonoBehaviour
     public float maxHangtime = 0.5f;
     public float hangtime = 0.5f;
     public float handsOn = 0;
+    private int reactionInt = 0;//0 = win, 1 = lose;
+
 
     //UI
     public UI_Manager ui;
@@ -62,6 +66,7 @@ public class GameController : MonoBehaviour
         c = GameObject.Find("Main Camera");
         gamePoint = c.transform.position;
         dialogPoint = new Vector3(0, 100, 0);
+        dialogPoint = new Vector3(0, 300, 0);
         canHold = false;
         t_player = player.transform;
         t_cpu = cpu.transform;
@@ -81,7 +86,7 @@ public class GameController : MonoBehaviour
         dialogue = true;
         ui.dialoguePanel.SetActive(true);
         c.transform.position = dialogPoint;
-        
+
     }
 
     void StartHandShake()
@@ -93,7 +98,7 @@ public class GameController : MonoBehaviour
         cpu.GetComponent<Hand>().Reset();
 
 
-        
+
         c.transform.position = gamePoint;
         Cursor.visible = false;
     }
@@ -131,10 +136,15 @@ public class GameController : MonoBehaviour
 
         }
     }
-
+    public void Reaction()
+    {
+        c.transform.position = reactionPoint;
+        npc.reFace.sprite = npc.reFaces[reactionInt];
+    }
     public void Win()
     {
         hangtime = maxHangtime;
+        handsOn = 0;
         player.SetActive(false);
         cpu.SetActive(false);
         ShowDialogue();
@@ -143,6 +153,7 @@ public class GameController : MonoBehaviour
     public void Lose()
     {
         hangtime = maxHangtime;
+        handsOn = 0;
         ShowDialogue();
     }
 
@@ -167,7 +178,7 @@ public class GameController : MonoBehaviour
 
     private void AwkwardControl()
     {
-        if(handsOn >0)
+        if(!dialogue && handsOn >0)
         {
             hangtime -= (awkwardMod / handsOn) * Time.deltaTime;
             if (hangtime <= 0)

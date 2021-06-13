@@ -54,7 +54,7 @@ public class Hand : MonoBehaviour
         GameController.canHold = true;
         if (other.tag == "awkward zone")
         {
-            //GameController.Instance.handsOn++;
+            GameController.Instance.handsOn++;
             Debug.Log("awkward");
         }
 
