@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     
+    
+
     public void LoadLevel()
     {
         SceneManager.LoadScene("Brunovsky");

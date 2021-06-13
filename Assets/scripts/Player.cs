@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(!GameController.Instance.dialogue)
+            if(!GameController.Instance.dialogue && !GameController.isPaused)
                 hand.ChangeHandMode();
         }
     }
