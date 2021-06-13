@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     private Transform t_player, t_cpu;
     bool handsHolding;
 
+    public int wins;
     public int lives;
     public static bool canHold;
 
@@ -183,6 +184,10 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                if (wins>9)
+                {
+                    Victory();
+                }
                 if (lives == 0)
                     GameOver();
                 running = false;
@@ -204,6 +209,7 @@ public class GameController : MonoBehaviour
     }
     public void Win()
     {
+        wins++;
         Stop();
         reactionInt = 0;
         Reaction();
@@ -222,6 +228,12 @@ public class GameController : MonoBehaviour
         Stop();
         SceneManager.LoadScene("GameOver");
     }
+    public void Victory()
+    {
+        Stop();
+        SceneManager.LoadScene("Victory");
+    }
+
 
     private void Gamestate()
     {
