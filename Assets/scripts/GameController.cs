@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     private GameObject c;
     private Vector3 dialogPoint;
     private Vector3 gamePoint;
+    private Vector3 reactionPoint;
 
     //estado do jogo
     public bool dialogue = true;
@@ -23,9 +25,25 @@ public class GameController : MonoBehaviour
     public GameObject player, cpu;
     private Transform t_player, t_cpu;
     bool handsHolding;
- 
-    public int score = 0;
+
+    public int lives;
     public static bool canHold;
+
+    //awkwardness meter
+    public GameObject meter;
+    public float awkwardness = 0;
+    public float awkwardMAX = 2.5f;
+    public float awkwardMod = 1;
+    public float maxHangtime = 0.5f;
+    public float hangtime = 0.5f;
+    public float handsOn = 0;
+    private int reactionInt = 0;//0 = win, 1 = lose;
+
+    //timer
+    private float countDown = -1f;
+    private float reactionTime = 3;
+    private bool running = false;
+
 
     //UI
     public UI_Manager ui;
@@ -54,6 +72,9 @@ public class GameController : MonoBehaviour
         c = GameObject.Find("Main Camera");
         gamePoint = c.transform.position;
         dialogPoint = new Vector3(0, 100, 0);
+        reactionPoint = new Vector3(0, 300, 0);
+
+        lives = 3;
         canHold = false;
         t_player = player.transform;
         t_cpu = cpu.transform;
@@ -72,9 +93,12 @@ public class GameController : MonoBehaviour
     {
         dialogue = true;
         ui.dialoguePanel.SetActive(true);
+        ui.HUD.SetActive(false);
         c.transform.position = dialogPoint;
-        
+
     }
+
+    
 
     void StartHandShake()
     {
@@ -83,9 +107,9 @@ public class GameController : MonoBehaviour
 
         player.GetComponent<Hand>().Reset();
         cpu.GetComponent<Hand>().Reset();
+        ui.HUD.SetActive(true);
 
 
-        
         c.transform.position = gamePoint;
         Cursor.visible = false;
     }
@@ -95,7 +119,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         Gamestate();
-
+        AwkwardControl();
+        Timer();
         //DEBUG
         Tests();
     }
@@ -124,16 +149,59 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Win()
+    public void Reaction()
     {
+        c.transform.position = reactionPoint;
+        npc.reFace.sprite = npc.reFaces[reactionInt];
+        countDown = reactionTime;
+        running = true;
+    }
+
+    private void Timer()
+    {
+        if (running)
+        {
+            if (countDown >= 0)
+            {
+                countDown -= Time.deltaTime;
+            }
+            else
+            {
+                running = false;
+                ShowDialogue();
+                npc.ChangeNpc();
+            }
+        }
+    }
+
+    private void Stop()
+    {
+        ui.HUD.SetActive(false);
+        hangtime = maxHangtime;
+        handsOn = 0;
         player.SetActive(false);
         cpu.SetActive(false);
-        ShowDialogue();
-        npc.ChangeNpc();
+        awkwardness = 0;
+    }
+    public void Win()
+    {
+        Stop();
+        reactionInt = 0;
+        Reaction();
     }
     public void Lose()
     {
-        ShowDialogue();
+        Stop();
+        lives--;
+        if (lives == 0)
+            GameOver();
+        reactionInt = 1;
+        Reaction();
+
+    }
+    public void GameOver()
+    {
+        Stop();
     }
 
     private void Gamestate()
@@ -153,6 +221,22 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape)) Pause();
         
+    }
+
+    private void AwkwardControl()
+    {
+        if(!dialogue && handsOn >0)
+        {
+            hangtime -= (awkwardMod / handsOn) * Time.deltaTime;
+            if (hangtime <= 0)
+            {
+                Debug.Log("hanging");
+                awkwardness += (awkwardMod / handsOn) * Time.deltaTime;
+            }
+            if (awkwardness > awkwardMAX)
+                Lose();
+
+        }
     }
 
 

@@ -184,8 +184,17 @@ MonoBehaviour:
   maxWaitBetweenPlays: 2
   waitTimeCountdown: -1
   audioClips:
-  - win
-  - lose
+  - mumble1
+  - mumble2
+  - mumble3
+  - mumble4
+  - mumble5
+  - mumble6
+  - mumble7
+  - mumble8
+  - mumble9
+  - mumble10
+  - mumble11
   manager: {fileID: 566610214}
 --- !u!114 &566610214
 MonoBehaviour:
@@ -551,12 +560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9337cbfa0fd192a4a8a9bd8bf67e5f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c: {fileID: 0}
-  playerHand: {fileID: 0}
-  cpuHand: {fileID: 475498457}
-  p: {fileID: 0}
-  score: 0
-  pauseMenu: {fileID: 0}
 --- !u!4 &1465318808
 Transform:
   m_ObjectHideFlags: 0
@@ -731,6 +734,18 @@ PrefabInstance:
     - target: {fileID: 4991926619809932794, guid: 4c04a788967689041ab0b57145be425f, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293756165329301630, guid: 4c04a788967689041ab0b57145be425f, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293756165329301630, guid: 4c04a788967689041ab0b57145be425f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 99b7bd24740e2094e80f693dff90e20d, type: 3}
+    - target: {fileID: 7293756165329301630, guid: 4c04a788967689041ab0b57145be425f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8181445522798307376, guid: 4c04a788967689041ab0b57145be425f, type: 3}
       propertyPath: m_RootOrder
